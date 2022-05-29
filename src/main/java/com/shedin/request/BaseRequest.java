@@ -2,21 +2,22 @@ package com.shedin.request;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import lombok.experimental.UtilityClass;
 
 import static com.shedin.constants.StringConstants.COOKIE;
 import static io.restassured.RestAssured.given;
 
 
+@UtilityClass
 public class BaseRequest {
-
-	private BaseRequest() {}
 
 	public static Response getRequest(final String uri, final int statusCode, String token) {
 		return given()
 				.when()
+				.header(COOKIE, token)
 				.log().method()
 				.log().uri()
-				.header(COOKIE, token)
+				.log().headers()
 				.get(uri)
 				.then()
 				.statusCode(statusCode)
@@ -29,10 +30,11 @@ public class BaseRequest {
 				.contentType(ContentType.JSON)
 				.body(raw)
 				.when()
+				.header(COOKIE, token)
 				.log().method()
 				.log().body(true)
 				.log().uri()
-				.header(COOKIE, token)
+				.log().headers()
 				.post(uri)
 				.then()
 				.statusCode(statusCode)

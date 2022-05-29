@@ -1,5 +1,6 @@
 package com.shedin.utility;
 
+import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import static java.lang.String.format;
 
 
 @Log4j2
+@UtilityClass
 public class TestContext {
 	private static HashMap<String, Object> TEST_DATA;
 
