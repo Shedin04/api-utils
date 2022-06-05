@@ -1,17 +1,16 @@
-package com.shedin.utility;
+package com.shedin.apicore.utility;
 
+import com.shedin.apicore.constants.StringConstants;
+import lombok.NoArgsConstructor;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.util.Properties;
 
-import static com.shedin.constants.StringConstants.API_PROPERTIES_FILE;
-import static com.shedin.constants.StringConstants.BASE_API_URL;
-
 
 @Log4j2
-@UtilityClass
+@NoArgsConstructor
 public class ConfigurationAPIHelper {
 
 	public static String getProperty(String file, String key) {
@@ -27,6 +26,6 @@ public class ConfigurationAPIHelper {
 	}
 
 	public static String getBaseURL() {
-		return getProperty(API_PROPERTIES_FILE, BASE_API_URL);
+		return getProperty(StringConstants.API_PROPERTIES_FILE, StringConstants.BASE_API_URL);
 	}
 }

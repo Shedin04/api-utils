@@ -1,4 +1,4 @@
-package com.shedin.constants;
+package com.shedin.apicore.constants;
 
 import lombok.experimental.UtilityClass;
 

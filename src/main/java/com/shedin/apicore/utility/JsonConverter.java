@@ -1,9 +1,10 @@
-package com.shedin.utility;
+package com.shedin.apicore.utility;
 
 
 
 
 import com.google.gson.stream.JsonReader;
+import lombok.NoArgsConstructor;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
@@ -13,7 +14,7 @@ import java.util.Objects;
 
 
 @Log4j2
-@UtilityClass
+@NoArgsConstructor
 public class JsonConverter {
 
 	public static JsonReader getReader(String file) {

@@ -1,10 +1,10 @@
-package com.shedin.request;
+package com.shedin.apicore.request;
 
+import com.shedin.apicore.constants.StringConstants;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import lombok.experimental.UtilityClass;
 
-import static com.shedin.constants.StringConstants.COOKIE;
 import static io.restassured.RestAssured.given;
 
 
@@ -14,7 +14,7 @@ public class BaseRequest {
 	public static Response getRequest(final String uri, final int statusCode, String token) {
 		return given()
 				.when()
-				.header(COOKIE, token)
+				.header(StringConstants.COOKIE, token)
 				.log().method()
 				.log().uri()
 				.log().headers()
@@ -30,7 +30,7 @@ public class BaseRequest {
 				.contentType(ContentType.JSON)
 				.body(raw)
 				.when()
-				.header(COOKIE, token)
+				.header(StringConstants.COOKIE, token)
 				.log().method()
 				.log().body(true)
 				.log().uri()

@@ -1,17 +1,18 @@
-package com.shedin.utility;
+package com.shedin.apicore.utility;
 
+import lombok.NoArgsConstructor;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.HashMap;
 import java.util.Optional;
 
-import static com.shedin.constants.StringConstants.TOKEN;
+import static com.shedin.apicore.constants.StringConstants.TOKEN;
 import static java.lang.String.format;
 
 
 @Log4j2
-@UtilityClass
+@NoArgsConstructor
 public class TestContext {
 	private static HashMap<String, Object> TEST_DATA;
 
