@@ -4,16 +4,12 @@ import com.shedin.apicore.constants.StringConstants;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Properties;
 
 
 @Log4j2
-@Lazy
-@Component
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ConfigurationAPIHelper {
 
