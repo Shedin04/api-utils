@@ -1,11 +1,7 @@
 package com.shedin.apicore.utility;
 
-
-
-
 import com.google.gson.stream.JsonReader;
 import lombok.NoArgsConstructor;
-import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.InputStream;
@@ -17,7 +13,7 @@ import java.util.Objects;
 @NoArgsConstructor
 public class JsonConverter {
 
-	public static JsonReader getReader(String file) {
+	public JsonReader getReader(String file) {
 		ClassLoader classLoader = JsonConverter.class.getClassLoader();
 		InputStream in = classLoader.getResourceAsStream(file);
 		return new JsonReader(new InputStreamReader(Objects.requireNonNull(in)));

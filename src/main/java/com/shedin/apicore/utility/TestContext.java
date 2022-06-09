@@ -1,7 +1,7 @@
 package com.shedin.apicore.utility;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import static java.lang.String.format;
 
 
 @Log4j2
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TestContext {
 	private static HashMap<String, Object> TEST_DATA;
 
