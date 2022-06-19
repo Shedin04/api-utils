@@ -14,17 +14,14 @@ import static java.lang.String.format;
 @Log4j2
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TestContext {
-	private static HashMap<String, Object> TEST_DATA;
+	private static final ThreadLocal<HashMap<String, Object>> TEST_DATA = ThreadLocal.withInitial(HashMap::new);
 
 	public static void saveSharedParameter(String key, Object value) {
-		if (TEST_DATA == null) {
-			TEST_DATA = new HashMap<>();
-		}
-		TEST_DATA.put(key, value);
+		TEST_DATA.get().put(key, value);
 	}
 
 	public static Object getSharedParameter(String key) {
-		return Optional.ofNullable(TEST_DATA.get(key))
+		return Optional.ofNullable(TEST_DATA.get().get(key))
 				.orElseThrow(() -> {
 					log.warn((format("There in no parameter with {%s} key", key)));
 					return new IllegalArgumentException();
