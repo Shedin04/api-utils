@@ -20,6 +20,10 @@ public class ConfigurationAPIHelper {
 	}
 
 	public String getEndpointUrl(String endpoint) {
+		String endpointProperty = ".endpoint";
+		if (!endpoint.contains(endpointProperty)) {
+			endpoint = endpoint + endpointProperty;
+		}
 		return configurationAPIService.getProperty(API_PROPERTIES_FILE, endpoint);
 	}
 }
