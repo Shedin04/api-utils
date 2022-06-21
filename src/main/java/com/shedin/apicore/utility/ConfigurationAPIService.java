@@ -1,6 +1,5 @@
 package com.shedin.apicore.utility;
 
-import com.shedin.apicore.constants.StringConstants;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -11,10 +10,10 @@ import java.util.Properties;
 
 @Log4j2
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ConfigurationAPIHelper {
+public class ConfigurationAPIService {
 
 	public String getProperty(String file, String key) {
-		ClassLoader classLoader = ConfigurationAPIHelper.class.getClassLoader();
+		ClassLoader classLoader = ConfigurationAPIService.class.getClassLoader();
 		Properties prop = new Properties();
 		try {
 			prop.load(classLoader.getResourceAsStream(file));
@@ -23,9 +22,5 @@ public class ConfigurationAPIHelper {
 			log.warn(e.getMessage());
 		}
 		return prop.getProperty(key);
-	}
-
-	public String getBaseURL() {
-		return getProperty(StringConstants.API_PROPERTIES_FILE, StringConstants.BASE_API_URL);
 	}
 }
