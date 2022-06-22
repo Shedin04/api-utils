@@ -1,5 +1,6 @@
 package com.shedin.apicore.utility;
 
+import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -14,9 +15,13 @@ import java.util.Objects;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class JsonConverter {
 
-	public JsonReader getReader(String file) {
+	private JsonReader getReader(String file) {
 		ClassLoader classLoader = JsonConverter.class.getClassLoader();
 		InputStream in = classLoader.getResourceAsStream(file);
 		return new JsonReader(new InputStreamReader(Objects.requireNonNull(in)));
+	}
+
+	public Object convertJsonToObject(String file, Class<?> clz) {
+		return new Gson().fromJson(getReader(file), clz);
 	}
 }

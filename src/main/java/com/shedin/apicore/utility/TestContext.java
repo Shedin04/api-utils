@@ -1,7 +1,5 @@
 package com.shedin.apicore.utility;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
