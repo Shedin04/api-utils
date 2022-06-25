@@ -1,19 +1,24 @@
 package com.shedin.apicore.constants;
 
-public interface StringConstants {
+import lombok.experimental.UtilityClass;
 
-	// files path //
-	interface FilePaths {
-		String API_PROPERTIES_FILE = "api.properties";
+
+@UtilityClass
+public final class StringConstants {
+
+	// file paths
+	public enum FilePaths {;
+		public static final String API_PROPERTIES_FILE = "api.properties";
 	}
 
-	interface BaseProperties {
-		String BASE_API_URL = "base.api.url";
+	// properties
+	public enum BaseProperties {;
+		public static final String BASE_API_URL = "base.api.url";
 	}
 
-	// Request parameters
-	interface RequestParameters {
-		String TOKEN = "token";
-		String COOKIE = "Cookie";
+	// request parameters
+	public enum RequestParameters {;
+		public static final String TOKEN = "token";
+		public static final String COOKIE = "Cookie";
 	}
 }

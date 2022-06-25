@@ -17,8 +17,8 @@ public class JsonConverter {
 
 	private JsonReader getReader(String file) {
 		ClassLoader classLoader = JsonConverter.class.getClassLoader();
-		InputStream in = classLoader.getResourceAsStream(file);
-		return new JsonReader(new InputStreamReader(Objects.requireNonNull(in)));
+		InputStream inputStream = classLoader.getResourceAsStream(file);
+		return new JsonReader(new InputStreamReader(Objects.requireNonNull(inputStream)));
 	}
 
 	public Object convertJsonToObject(String file, Class<?> clz) {

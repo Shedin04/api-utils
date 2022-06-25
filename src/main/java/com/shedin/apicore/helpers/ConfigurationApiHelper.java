@@ -1,16 +1,21 @@
 package com.shedin.apicore.helpers;
 
-import com.shedin.apicore.utility.ConfigurationAPIService;
+import com.shedin.apicore.utility.ConfigurationApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static com.shedin.apicore.constants.StringConstants.BaseProperties.BASE_API_URL;
 import static com.shedin.apicore.constants.StringConstants.FilePaths.API_PROPERTIES_FILE;
 
 
-public class ConfigurationAPIHelper {
-	@Autowired
-	private ConfigurationAPIService configurationAPIService;
+public class ConfigurationApiHelper {
+	private static final String ENDPOINT_PROPERTY = ".endpoint";
+	private final ConfigurationApiService configurationAPIService;
 	private String baseURL;
+
+	@Autowired
+	public ConfigurationApiHelper(ConfigurationApiService configurationAPIService) {
+		this.configurationAPIService = configurationAPIService;
+	}
 
 	public String getBaseURL() {
 		if (baseURL == null) {
@@ -20,9 +25,8 @@ public class ConfigurationAPIHelper {
 	}
 
 	public String getEndpointUrl(String endpoint) {
-		String endpointProperty = ".endpoint";
-		if (!endpoint.contains(endpointProperty)) {
-			endpoint = endpoint + endpointProperty;
+		if (!endpoint.contains(ENDPOINT_PROPERTY)) {
+			endpoint = endpoint + ENDPOINT_PROPERTY;
 		}
 		return configurationAPIService.getProperty(API_PROPERTIES_FILE, endpoint);
 	}

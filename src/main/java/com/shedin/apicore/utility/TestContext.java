@@ -25,4 +25,8 @@ public class TestContext {
 					return new IllegalArgumentException();
 				});
 	}
+
+	public static void unloadTestData() {
+		TEST_DATA.remove();
+	}
 }

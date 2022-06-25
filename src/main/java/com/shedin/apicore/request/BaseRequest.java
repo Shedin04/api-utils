@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 @UtilityClass
 public class BaseRequest {
 
-	public Response getRequest(final String uri, Map<String, String> headers) {
+	public Response getRequest(final String uri, final Map<String, String> headers) {
 		return given()
 				.when()
 				.headers(headers)
@@ -35,7 +35,7 @@ public class BaseRequest {
 				.extract().response();
 	}
 
-	public Response postRequest(final String uri, final Object raw, Map<String, String> headers) {
+	public Response postRequest(final String uri, final Object raw, final Map<String, String> headers) {
 		return given()
 				.contentType(ContentType.JSON)
 				.body(raw)
@@ -60,20 +60,6 @@ public class BaseRequest {
 				.log().uri()
 				.post(uri)
 				.then()
-				.extract().response();
-	}
-
-	public Response postRequest(final String uri, final int statusCode, final Object raw) {
-		return given()
-				.contentType(ContentType.JSON)
-				.body(raw)
-				.when()
-				.log().method()
-				.log().body(true)
-				.log().uri()
-				.post(uri)
-				.then()
-				.statusCode(statusCode)
 				.extract().response();
 	}
 }
