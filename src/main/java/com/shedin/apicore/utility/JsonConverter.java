@@ -21,7 +21,7 @@ public class JsonConverter {
 		return new JsonReader(new InputStreamReader(Objects.requireNonNull(inputStream)));
 	}
 
-	public Object convertJsonToObject(String file, Class<?> clz) {
+	public Object convertJsonFileToObject(String file, Class<?> clz) {
 		return new Gson().fromJson(getReader(file), clz);
 	}
 }
